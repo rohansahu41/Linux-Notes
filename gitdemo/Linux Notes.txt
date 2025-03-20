@@ -1,0 +1,105 @@
+1.To check firewall:-
+firewall-cmd --list-all
+firewall-cmd --permanent --add-port=80/tcp
+firewall-cmd --permanent --add-port=443/tcp
+firewall-cmd --reload
+
+2.To check if the port is listening or not:-
+netstat -tulpn|grep 12801
+netstat -tulpn|grep 12800
+netstat -tulpn|grep 2049
+netstat -tulpn|grep 111
+
+3.To change hostname:-
+cat /etc/hostname
+hostnamectl set-hostname FvIQGeoDB04S.cinbell.com
+
+4.To change IP Address:-
+cd /etc/sysconfig/network-scripts/
+cp -p ifcfg-ens192 ifcfg-ens192_backup
+vi ifcfg-ens192
+ip a
+systemctl restart NetworkManager
+
+5.To set time and date:-
+timedatectl set-timezone Europe/Berlin
+
+6.To start/stop services:-
+systemctl status atom.service
+systemctl stop atom.service
+systemctl disable atom.service
+systemctl start atom.service
+
+7.To rollback changes:-
+yum remove $(cat /path/to/packagetoinstall.txt)
+
+8.Security Patching prechecks:-
+uptime
+df -h
+free -h
+cat /etc/fstab
+fdisk -l
+lsblk -a
+ip a
+uname -r
+hostnamectl
+systemctl status httpd
+sudo systemctl --type=service --state=running
+
+9.To install packages:-
+rpm -ivh rubrik-agent.x86_64.rpm
+yum install net-snmp net-snmp-utils -y
+
+10.To check and apply security patch:-
+subscription-manager list
+yum clean all
+yum check-update --security
+rpm -qa --last |grep kernel
+uname -r
+df -Ph
+yum update --security
+reboot
+
+11.To check if DB is running:-
+ps -ef|grep -i pmon
+ps -ef|grep -i tns
+ps -ef|grep -i oracle
+
+12.To put soft link:-
+ln -sf /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.412.b08-1.el7_9.x86_64/jre /etc/alternatives/java
+
+13.To extract files:-
+tar -xvzf splunk-9.0.7-b985591d12fd-Linux-x86_64.tgz
+
+14.To connect and try telnet:-
+curl -v telnet://161.155.90.53:8089
+
+15.To adjust the date and time:-
+systemctl status chronyd
+cat /etc/chrony.conf
+cp -p /etc/chrony.conf /etc/chrony.conf_31052024
+systemctl enable --now chronyd
+systemctl restart chronyd
+systemctl status chronyd
+chronyc sources
+
+16.To download for internet/web:-
+wget -O splunkforwarder-9.0.4-de405f4a7979-Linux-x86_64.tgz "https://download.splunk.com/products/universalforwarder/releases/9.0.4/linux/splunkforwarder-9.0.4-de405f4a7979-Linux-x86_64.tgz"
+
+17.LVM
+rescan-scsi-bus.sh -s
+
+18.To transfer files from one server to another:-
+scp source_file_path destination_user@destination_host:destination_path
+
+
+
+
+
+
+
+
+
+
+
+
