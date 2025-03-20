@@ -92,7 +92,8 @@ rescan-scsi-bus.sh -s
 18.To transfer files from one server to another:-
 scp source_file_path destination_user@destination_host:destination_path
 
-
+19.To poweroff the Linux Machine
+shutdown -h now
 
 
 
